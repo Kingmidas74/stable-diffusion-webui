@@ -338,7 +338,7 @@ def load_model_weights(model, checkpoint_info: CheckpointInfo, state_dict, timer
     timer.record("calculate hash")
 
     if not SkipWritingToConfig.skip:
-        shared.opts.data["sd_model_checkpoint"] = checkpoint_info.title
+        shared.opts.data["sd_model_checkpoint"] = checkpoint_info.title;model.half()
 
     if state_dict is None:
         state_dict = get_checkpoint_state_dict(checkpoint_info, timer)
